@@ -1,0 +1,41 @@
+# This file is for specific user overrides and is sourced in /etc/bashrc
+#########################################################################
+
+# ls aliases
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+
+#alias ls='ls -G'
+alias la='ls -A'
+
+# ssh aliases
+alias ssh_gow='ssh jwright@egr33.egr.nau.edu'
+alias ssh_lou='ssh jwright@egr75.egr.nau.edu'
+alias ssh_mon='ssh jaw566@monsoon.hpc.nau.edu'
+alias ssh_rtx='ssh jwright@cmp3101.computers.nau.edu'
+
+alias ac='cd ~/Research/gpu_aes_repo/Paper-GPU_RBC && vim ACSAC.tex'
+alias new='cd ~/Research/gpu_aes_repo/CNS-Paper/ && vim CNS.tex'
+alias rml='rm CNS.out CNS.bbl CNS.log CNS.aux CNS.pdf CNS.blg'
+alias nprofile='cd /Users/Shared/Developer/CUDA-10.1/bin && ./nvvp'
+mlatex()
+{
+    pdflatex $1 && bibtex $1 && pdflatex $1 && pdflatex $1 
+}
+Rpdf()
+{
+    Rscript -e "Sys.setenv(RSTUDIO_PANDOC='/Applications/RStudio.app/Contents/MacOS/pandoc'); rmarkdown::render('./$1')"
+}
+profile()
+{
+  ./Users/Shared/Developer/CUDA-10.1/bin/nvcc $1
+}
+
+# color the prompt
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]: \[\033[01;36m\]\W\[\033[00m\]\$ '
+
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/bin/:$PATH"

@@ -1,0 +1,22 @@
+set runtimepath+=~/.vim/colors
+set nocompatible
+syntax on
+colorscheme jordan
+
+inoremap jk <esc>
+inoremap eol <esc>$a
+inoremap bol <esc>^i
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set number
+set hlsearch
+
+if has("autocmd")
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \     exe "normal! g`\"" |
+        \ endif
+endif
+
